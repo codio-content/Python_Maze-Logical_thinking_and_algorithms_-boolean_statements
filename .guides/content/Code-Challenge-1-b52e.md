@@ -16,8 +16,7 @@ Test this out so you get both messages. You will need to bump into energy and mo
 
 ```python
 def turnTaken():
-
-  if getEnergy < 10 and steps >= 10:
+  if getEnergy() < 10 and getSteps() >= 10:
     showMessage('Not going well')
   else:
     showMessage('Going OK')

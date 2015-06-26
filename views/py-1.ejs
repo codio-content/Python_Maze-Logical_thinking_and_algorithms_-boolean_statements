@@ -8,11 +8,18 @@
     <script>        
       
       function userScriptLoaded() { 
-        endOfTurn (turnTaken)
         setEnergyDefaultEnergy(10)
         setMonsterDefaultDamage(2)        
         createRandomMaze(16,8) 
         energy = 10
+
+        var turnTaken = module.tp$getattr('turnTaken');
+
+        endOfTurn(function() {
+          if(turnTaken) {
+            Sk.misceval.callsim(turnTaken);
+          }  
+        });      
       }
       
       document.addEventListener('DOMContentLoaded', function() {    

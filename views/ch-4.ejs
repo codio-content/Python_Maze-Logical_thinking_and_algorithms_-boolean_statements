@@ -8,6 +8,9 @@
     <script>        
       
       function userScriptLoaded() {
+
+        var keyPressedEvent = module.tp$getattr('keyPressedEvent');
+        
         keyPressed (function (keyCode) {
           if ( keyCode == 'LEFT' ) {
             player.moveLeft()
@@ -18,7 +21,10 @@
           if ( keyCode == 'UP' ) {
             player.moveUp()
           } 
-          keyPressedEvent(keyCode)
+
+          if(keyPressedEvent) {
+            Sk.misceval.callsim(keyPressedEvent, new Sk.builtin.str(keyCode));
+          }  
        
         })
         allowDown = false
@@ -28,7 +34,19 @@
       
       document.addEventListener('DOMContentLoaded', function() {    
         importPythonGame();
-                
+
+        window.downAllowd = false;
+            
+        Sk.builtins['getDownAllowed'] = Sk.builtin.getDownAllowed = new Sk.builtin.func(function () {
+          return window.downAllowd ? Sk.builtin.bool.true$ : Sk.builtin.bool.false$;
+        });
+
+        Sk.builtins['setDownAllowed'] = Sk.builtin.setDownAllowed = new Sk.builtin.func(function (val) {
+          val = val ? val.v : val;
+          window.downAllowd = val;
+          return Sk.builtin.none.none$;
+        });
+        
         // Boolean challenge 1
         loadUserScript('/py/ch-4.py')
         

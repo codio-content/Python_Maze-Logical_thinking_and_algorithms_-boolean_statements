@@ -17,8 +17,8 @@ router.get('/ch-2', function(req, res) {
 });
 
 // Boolean variable
-router.get('/js-1', function(req, res) {
-  res.render('js-1');
+router.get('/py-1', function(req, res) {
+  res.render('py-1');
 });
 
 // Boolean var challenge 1

@@ -17,8 +17,8 @@ Remember `==` (equals), `!=` (not equals), `<` (less than), `<=` (less than or e
 
 | Example Value | Condition | Boolean Result |
 |-|-|-|
-| `energy = 5` | `energy == 5` | `true` | 
-| `energy = 5` | `energy != 5` | `false` | 
-| `energy = 10` | `energy < 10` | `false` | 
-| `energy = 10` | `energy <= 10` | `true` | 
-| `energy = 5` | `energy > 10` | `false` | 
+| `number = 5` | `number == 5` | `true` | 
+| `number = 5` | `number != 5` | `false` | 
+| `number = 10` | `number < 10` | `false` | 
+| `number = 10` | `number <= 10` | `true` | 
+| `number = 5` | `number > 10` | `false` | 

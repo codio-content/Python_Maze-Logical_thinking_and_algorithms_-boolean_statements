@@ -6,8 +6,10 @@
     <% include include/game.ejs %>    
  
     <script>        
-      
+            
       function userScriptLoaded() {
+        var keyPressedEvent = module.tp$getattr('keyPressedEvent');
+
         keyPressed (function (keyCode) {
           if ( keyCode == 'LEFT' ) {
             player.moveLeft()
@@ -21,8 +23,11 @@
           if ( keyCode == 'DOWN' ) {
             player.moveDown()
           }  
-          keyPressedEvent(keyCode)
-       
+
+          if(keyPressedEvent) {
+            Sk.misceval.callsim(keyPressedEvent, new Sk.builtin.str(keyCode));
+          }  
+          
         })
         createEmptyMaze()
         addPlayer()
@@ -30,7 +35,19 @@
       
       document.addEventListener('DOMContentLoaded', function() {    
         importPythonGame();
-                
+        
+        window.otherKeysAllowd = false;
+            
+        Sk.builtins['getOtherKeysAllowd'] = Sk.builtin.getOtherKeysAllowd = new Sk.builtin.func(function () {
+          return window.otherKeysAllowd ? Sk.builtin.bool.true$ : Sk.builtin.bool.false$;
+        });
+
+        Sk.builtins['setOtherKeysAllowd'] = Sk.builtin.setOtherKeysAllowd = new Sk.builtin.func(function (val) {
+          val = val ? val.v : val;
+          window.otherKeysAllowd = val;
+          return Sk.builtin.none.none$;
+        });
+
         // Boolean challenge 1
         loadUserScript('/py/ch-3.py')
         

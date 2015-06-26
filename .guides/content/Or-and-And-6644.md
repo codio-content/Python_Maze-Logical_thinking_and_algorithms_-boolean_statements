@@ -11,7 +11,7 @@ if getEnergy() < 10 and steps > 20:
 
 ## OR `or`
 
-*"If the object you just hit is a monster **OR** an energy store then play a sound"*
+*"If the object you just hit is a monster **or** an energy store then play a sound"*
 
 ```python
 if type == 'monster' or type == 'energy':

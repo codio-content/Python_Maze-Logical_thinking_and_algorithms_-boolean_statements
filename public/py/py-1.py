@@ -1,9 +1,10 @@
 
 def turnTaken():
 
-  killPlayer = false
+  killPlayer = False
   
   if killPlayer:
-    energy = 0
+    setEnergy(0)
   if not killPlayer:
-    energy = energy + 10
+    energy = getEnergy() + 10
+    setEnergy(energy)

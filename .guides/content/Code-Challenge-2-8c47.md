@@ -16,7 +16,6 @@ Test this out so that you can see all 3 messages, then press the button below.
 
 ```python
 def keyPressedEvent(keyCode):
-
   if keyCode == 'LEFT' or keyCode == 'RIGHT':
     showMessage('Horizontal')
   elif keyCode == 'UP' or keyCode == 'DOWN':

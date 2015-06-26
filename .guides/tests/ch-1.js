@@ -1,46 +1,69 @@
 
-turnTaken = null;
+turnTaken  = null;
 
-$.getScript(window.location.origin + '/public/js/' + window.testEnv.cmd + '.js?_=' + Date.now())
-.done(function (script, status) {
-  
-  createEmptyMaze();
+var fileName = window.location.origin + '/public/py/' + window.testEnv.cmd + '.py';
+
+$.get(fileName)
+.success(function(data) {
+
+  if(data == 404) {
+    console.log(exception);
+    codio.setButtonValue(window.testEnv.id, codio.BUTTON_STATE.INVALID, fileName + ' not found'); 
+  }
+
+  try {        
+    createEmptyMaze();
     
-  var _well = false;
-  var _ok = false;
-  
-  if(typeof turnTaken == 'function') {
-    energy = 9;
-    steps = 10;
+    // load python
+    var module = Sk.importMainWithBody("", false, data);
+
+    // get reference to functions
+
+    turnTaken = module.tp$getattr('turnTaken');
     
-    window.showMessage = function (val) {
-      if(val.toLowerCase() == 'not going well') _well = true;
+    // test
+
+    var _well = false;
+    var _ok = false;
+
+    if(typeof turnTaken != 'undefined') {
+      energy = 9;
+      steps = 10;
+
+      window.showMessage = function (val) {
+        if(val.toLowerCase() == 'not going well') _well = true;
+      }
+
+      Sk.misceval.callsim(turnTaken);
+
+      energy = 10;
+      steps = 10;
+
+      window.showMessage = function (val) {
+        if(val.toLowerCase() == 'going ok') _ok = true;
+      }
+
+      Sk.misceval.callsim(turnTaken);
+
+      if(!_well || !_ok) {
+        return codio.setButtonValue(window.testEnv.id, codio.BUTTON_STATE.FAILURE, 'Not quite right, try again!');
+      }
     }
-
-    turnTaken();
-
-    energy = 10;
-    steps = 10;
-
-    window.showMessage = function (val) {
-      if(val.toLowerCase() == 'going ok') _ok = true;
-    }
-    
-    turnTaken();
-    
-    if(!_well || !_ok) {
+    else {
       return codio.setButtonValue(window.testEnv.id, codio.BUTTON_STATE.FAILURE, 'Not quite right, try again!');
     }
-  }
-  else {
-    return codio.setButtonValue(window.testEnv.id, codio.BUTTON_STATE.FAILURE, 'Not quite right, try again!');
-  }
-  
-  
-  codio.setButtonValue(window.testEnv.id, codio.BUTTON_STATE.SUCCESS, 'Well done!');    
 
+    codio.setButtonValue(window.testEnv.id, codio.BUTTON_STATE.SUCCESS, 'Well done!');    
+
+  }
+  catch(exception) {
+    console.log('skulpt exception');
+    console.log(exception);
+    codio.setButtonValue(window.testEnv.id, codio.BUTTON_STATE.INVALID, exception.toString()); 
+  }
 })
-.fail(function (jqxhr, settings, exception) {
+.fail(function(jqxhr, settings, exception) {
+  console.log('jqxhr fail');
   console.log(exception);
   codio.setButtonValue(window.testEnv.id, codio.BUTTON_STATE.INVALID, exception.message); 
-});
+});    

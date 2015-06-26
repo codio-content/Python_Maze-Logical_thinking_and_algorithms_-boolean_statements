@@ -8,6 +8,9 @@
     <script>        
       
       function userScriptLoaded() {
+        
+        var keyPressedEvent = module.tp$getattr('keyPressedEvent');
+        
         keyPressed (function (keyCode) {
           if ( keyCode == 'LEFT' ) {
             player.moveLeft()
@@ -21,7 +24,10 @@
           if ( keyCode == 'DOWN' ) {
             player.moveDown()
           }  
-          keyPressedEvent(keyCode)
+          
+          if(keyPressedEvent) {
+            Sk.misceval.callsim(keyPressedEvent, new Sk.builtin.str(keyCode));
+          }  
        
         })
         createEmptyMaze()

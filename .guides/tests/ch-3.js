@@ -2,86 +2,117 @@
 keyPressedEvent  = null;
 window.allowOtherKeys = true;
 
-$.getScript(window.location.origin + '/public/js/' + window.testEnv.cmd + '.js?_=' + Date.now())
-.done(function (script, status) {
-  
-  createRandomMaze();
-    
-  var _left = false;
-  var _right = false;
-  var _up = false;
-  var _down = false;
-  
-  window.allowOtherKeys = true;
-  
-  if(typeof keyPressedEvent  == 'function') {
+var fileName = window.location.origin + '/public/py/' + window.testEnv.cmd + '.py';
 
-    Object.defineProperty(window, "allowOtherKeys", { 
-      set: function (val) { },
-      get: function () { return true } 
+$.get(fileName)
+.success(function(data) {
+
+  if(data == 404) {
+    console.log(exception);
+    codio.setButtonValue(window.testEnv.id, codio.BUTTON_STATE.INVALID, fileName + ' not found'); 
+  }
+
+  try {
+    
+    Sk.builtins['getOtherKeysAllowd'] = Sk.builtin.getOtherKeysAllowd = new Sk.builtin.func(function () {
+      return Sk.builtin.bool.true$;
     });
+
+    Sk.builtins['setOtherKeysAllowd'] = Sk.builtin.setOtherKeysAllowd = new Sk.builtin.func(function () {
+      // do nothing
+      return Sk.builtin.none.none$;
+    });
+
+    createRandomMaze();
     
+    // load python
+    var module = Sk.importMainWithBody("", false, data);
+
+    // get reference to functions
+
+    keyPressedEvent = module.tp$getattr('keyPressedEvent');
     
-    player.moveLeft = function () {
-      _left = true;
+    // test
+ 
+    var _left = false;
+    var _right = false;
+    var _up = false;
+    var _down = false;
+
+    if(typeof keyPressedEvent != 'undefined') {
+
+      player.moveLeft = function () {
+        _left = true;
+      }
+
+      Sk.misceval.callsim(keyPressedEvent, new Sk.builtin.str('A'));
+
+
+      player.moveRight = function () {
+        _right = true;
+      }
+
+      Sk.misceval.callsim(keyPressedEvent, new Sk.builtin.str('D'));
+
+
+      player.moveUp = function () {
+        _up = true;
+      }
+
+      Sk.misceval.callsim(keyPressedEvent, new Sk.builtin.str('W'));
+
+
+      player.moveDown = function () {
+        _down = true;
+      }
+
+      Sk.misceval.callsim(keyPressedEvent, new Sk.builtin.str('S'));
+
+
+      if(!_left || !_right || !_up || !_down) {
+        return codio.setButtonValue(window.testEnv.id, codio.BUTTON_STATE.FAILURE, 'Not quite right, try again!');
+      }
+      
+      _left = false;
+      _right = false;
+      _up = false;
+      _down = false;
+
+      Sk.builtins['getOtherKeysAllowd'] = Sk.builtin.getOtherKeysAllowd = new Sk.builtin.func(function () {
+      return Sk.builtin.bool.false$;
+    });
+
+      Sk.misceval.callsim(keyPressedEvent, new Sk.builtin.str('A'));
+      Sk.misceval.callsim(keyPressedEvent, new Sk.builtin.str('D'));
+      Sk.misceval.callsim(keyPressedEvent, new Sk.builtin.str('W'));
+      Sk.misceval.callsim(keyPressedEvent, new Sk.builtin.str('S'));
+
+      console.log(_left)
+      console.log(_right)
+      console.log(_up)
+      console.log(_down)
+
+      
+      if(_left || _right || _up || _down) {
+        return codio.setButtonValue(window.testEnv.id, codio.BUTTON_STATE.FAILURE, 'Not quite right, try again!');
+      }    
     }
-
-    keyPressedEvent('A');
-
-
-    player.moveRight = function () {
-      _right = true;
-    }
-
-    keyPressedEvent('D');
-
-
-    player.moveUp = function () {
-      _up = true;
-    }
-
-    keyPressedEvent('W');
-
-
-    player.moveDown = function () {
-      _down = true;
-    }
-
-    keyPressedEvent('S');
-        
-    
-    if(!_left || !_right || !_up || !_down) {
+    else {
       return codio.setButtonValue(window.testEnv.id, codio.BUTTON_STATE.FAILURE, 'Not quite right, try again!');
     }
+
+    codio.setButtonValue(window.testEnv.id, codio.BUTTON_STATE.SUCCESS, 'Well done!');    
     
-    _left = false;
-    _right = false;
-    _up = false;
-    _down = false;
-        
-    Object.defineProperty(window, "allowOtherKeys", { 
-      set: function (val) { },
-      get: function () { return false } 
-    });
     
-    keyPressedEvent('A');
-    keyPressedEvent('D');
-    keyPressedEvent('W');
-    keyPressedEvent('S');
-
-
-    if(_left || _right || _up || _down) {
-      return codio.setButtonValue(window.testEnv.id, codio.BUTTON_STATE.FAILURE, 'Not quite right, try again!');
-    }    
+    }
+  catch(exception) {
+    console.log('skulpt exception');
+    console.log(exception);
+    codio.setButtonValue(window.testEnv.id, codio.BUTTON_STATE.INVALID, exception.toString()); 
   }
-  else {
-    return codio.setButtonValue(window.testEnv.id, codio.BUTTON_STATE.FAILURE, 'Not quite right, try again!');
-  }
-  
-  codio.setButtonValue(window.testEnv.id, codio.BUTTON_STATE.SUCCESS, 'Well done!');    
-
 })
-.fail(function (jqxhr, settings, exception) {
+.fail(function(jqxhr, settings, exception) {
+  console.log('jqxhr fail');
   console.log(exception);
   codio.setButtonValue(window.testEnv.id, codio.BUTTON_STATE.INVALID, exception.message); 
-});
+});    
