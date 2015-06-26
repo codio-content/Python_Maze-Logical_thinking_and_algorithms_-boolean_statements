@@ -1,0 +1,170 @@
+{
+ "sections": [
+  {
+   "id": "becfb7c2-35da-f23a-ffbc-8d6b4c55316e",
+   "title": "Boolean",
+   "files": [
+    {
+     "path": "#tabs",
+     "action": "close"
+    }
+   ],
+   "layout": "1-panel",
+   "path": [],
+   "type": "markdown",
+   "content-file": ".guides/content/Boolean-becf.md"
+  },
+  {
+   "id": "664496d1-ff0-a29e-1846-bed12a7b1759",
+   "title": "Or and And",
+   "files": [],
+   "path": [],
+   "type": "markdown",
+   "content-file": ".guides/content/Or-and-And-6644.md"
+  },
+  {
+   "id": "74767c7b-3ee4-8037-32ef-5ff81a93b791",
+   "title": "More on Logical Operators",
+   "files": [],
+   "path": [],
+   "type": "markdown",
+   "content-file": ".guides/content/More-on-Logical-Operators-7476.md"
+  },
+  {
+   "id": "a0ad88f7-9056-aea2-7d51-2ed999b869f3",
+   "title": "Truth Tables",
+   "files": [],
+   "path": [],
+   "type": "markdown",
+   "content-file": ".guides/content/Truth-Tables-a0ad.md"
+  },
+  {
+   "id": "b52e9707-da-2339-b8ba-459cc3dad6d2",
+   "title": "Code Challenge 1",
+   "files": [
+    {
+     "path": "#tabs",
+     "action": "close"
+    },
+    {
+     "path": "public/py/ch-1.py",
+     "panel": 0,
+     "action": "open"
+    },
+    {
+     "path": "#preview: https://{{domain9500}}/ch-1",
+     "panel": 1,
+     "action": "open"
+    }
+   ],
+   "layout": "3-cell",
+   "path": [],
+   "type": "markdown",
+   "content-file": ".guides/content/Code-Challenge-1-b52e.md"
+  },
+  {
+   "id": "8c47d978-6827-a696-b51b-616e231778b0",
+   "title": "Code Challenge 2",
+   "files": [
+    {
+     "path": "#tabs",
+     "action": "close"
+    },
+    {
+     "path": "public/py/ch-2.py",
+     "panel": 0,
+     "action": "open"
+    },
+    {
+     "path": "#preview: https://{{domain9500}}/ch-2",
+     "panel": 1,
+     "action": "open"
+    }
+   ],
+   "layout": "",
+   "path": [],
+   "type": "markdown",
+   "content-file": ".guides/content/Code-Challenge-2-8c47.md"
+  },
+  {
+   "id": "394f7cab-633e-baf0-e6d-344411309101",
+   "title": "Boolean variables",
+   "files": [
+    {
+     "path": "#tabs",
+     "action": "close"
+    },
+    {
+     "path": "public/py/py-1.py",
+     "panel": 0,
+     "action": "open"
+    },
+    {
+     "path": "#preview: https://{{domain9500}}/py-1",
+     "panel": 1,
+     "action": "open"
+    }
+   ],
+   "layout": "",
+   "path": [],
+   "type": "markdown",
+   "content-file": ".guides/content/Boolean-variables-394f.md"
+  },
+  {
+   "id": "87ed4915-4a6b-5015-3b7f-609aae8ad5df",
+   "title": "Challenge Keyboard",
+   "files": [
+    {
+     "path": "#tabs",
+     "action": "close"
+    },
+    {
+     "path": "public/py/ch-3.py",
+     "panel": 0,
+     "action": "open"
+    },
+    {
+     "path": "#preview: https://{{domain9500}}/ch-3",
+     "panel": 1,
+     "action": "open"
+    }
+   ],
+   "layout": "",
+   "path": [],
+   "type": "markdown",
+   "content-file": ".guides/content/Challenge-Keyboard-87ed.md"
+  },
+  {
+   "id": "544fe4a7-f3-1952-4d7f-d895c30c059",
+   "title": "Final challenge",
+   "files": [
+    {
+     "path": "#tabs",
+     "action": "close"
+    },
+    {
+     "path": "public/py/ch-4.py",
+     "panel": 0,
+     "action": "open"
+    },
+    {
+     "path": "#preview: https://{{domain9500}}/ch-4",
+     "panel": 1,
+     "action": "open"
+    }
+   ],
+   "layout": "",
+   "path": [],
+   "type": "markdown",
+   "content-file": ".guides/content/Final-challenge-544f.md"
+  }
+ ],
+ "theme": "paper",
+ "scripts": [
+  "https://code.jquery.com/jquery-2.1.4.min.js",
+  "https://mazegame.codio.com/skulpt.min.js",
+  "https://mazegame.codio.com/game.js",
+  "https://mazegame.codio.com/game.python.js",
+  ".guides/test_static.js"
+ ]
+}
