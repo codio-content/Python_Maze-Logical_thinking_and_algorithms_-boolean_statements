@@ -6,7 +6,7 @@ Below are 2 examples of truth tables. Each of Input 1 and Input 2 can be any boo
 For any 2 given inputs to a logical AND test, the following table applies.
 
 | Input 1 | AND | Input 2 | Result |
-|:-:|:-:|:-:|:-:|
+|-|-|-|-|
 | False | AND | False | **False** |
 | False | AND | True | **False** |
 | True | AND | False | **False** |
@@ -18,7 +18,7 @@ As is pretty obvious, **both** inputs need to be true in order for the result to
 For any 2 given inputs to a logical OR test, the following table applies.
 
 | Input 1 | OR | Input 2 | Result |
-|:-:|:-:|:-:|:-:|
+|-|-|-|-|
 | False | OR | False | **False** |
 | False | OR | True | **True** |
 | True | OR | False | **True** |

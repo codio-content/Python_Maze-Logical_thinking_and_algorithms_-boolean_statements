@@ -38,11 +38,11 @@
         
         window.otherKeysAllowd = false;
             
-        Sk.builtins['getOtherKeysAllowd'] = Sk.builtin.getOtherKeysAllowd = new Sk.builtin.func(function () {
+        Sk.builtins['getOtherKeysAllowed'] = Sk.builtin.getOtherKeysAllowd = new Sk.builtin.func(function () {
           return window.otherKeysAllowd ? Sk.builtin.bool.true$ : Sk.builtin.bool.false$;
         });
 
-        Sk.builtins['setOtherKeysAllowd'] = Sk.builtin.setOtherKeysAllowd = new Sk.builtin.func(function (val) {
+        Sk.builtins['setOtherKeysAllowed'] = Sk.builtin.setOtherKeysAllowd = new Sk.builtin.func(function (val) {
           val = val ? val.v : val;
           window.otherKeysAllowd = val;
           return Sk.builtin.none.none$;
