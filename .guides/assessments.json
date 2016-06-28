@@ -1,0 +1,66 @@
+[
+ {
+  "type": "test",
+  "taskId": "test-1395794614",
+  "source": {
+   "showName": false,
+   "answers": [],
+   "tokens": {
+    "blank": [],
+    "text": []
+   },
+   "name": "Toggle key",
+   "instructions": "The code on the left stops the down arrow key from working unless the user first presses the A key. However, it does not yet work!\n\nWrite some code within the first `if` statement that calls the `setDownAllowed(val)` command with either `True` or `False` if the 'A' key is pressed so that the down arrow key then works.\n\nYou get extra marks if pressing it again stops `if` from working. Each time you press the A it 'toggles' between the arrow working and not working.\n\n**Hint** you can change the value of a boolean to `False` when `True` or `True` when `False` using `boolVar = not boolVar`.",
+   "command": "python .guides/tests/ch-4.py",
+   "points": 1
+  }
+ },
+ {
+  "type": "test",
+  "taskId": "test-2471758565",
+  "source": {
+   "showName": false,
+   "answers": [],
+   "tokens": {
+    "blank": [],
+    "text": []
+   },
+   "name": "Checking keys",
+   "instructions": "Write some code for the given `keyPressedEvent()` handler that \n\n- shows the message 'Horizontal' if either the left or right key is pressed.\n- shows the message 'Vertical' if either the up or down key is pressed.\n- show the message \"Another key was pressed\" if any other key is pressed.\n\nTest this out so that you can see all 3 messages, then press the button below.\n",
+   "command": "python .guides/tests/ch-2.py",
+   "points": 1
+  }
+ },
+ {
+  "type": "test",
+  "taskId": "test-3596558921",
+  "source": {
+   "showName": false,
+   "answers": [],
+   "tokens": {
+    "blank": [],
+    "text": []
+   },
+   "name": "Advanced keyboard handler",
+   "instructions": "We want you to implement a special keyboard handler but only if a boolean variable called `allowOtherKeys` is set to be `True`.\n\nWe've provided you some code already. You need to \n\n- Call the command `setOtherKeysAllowed(True)` \n- Insert an `if` statement that checks whether it `getOtherKeysAllowed()` is True\n- If it is True, then the keyboard handler should run so the 'A' moves the player left, 'D' moves right, 'W' up and 'S' down. You should insert the correct keyboard characters as upper case letters.\n\nYou will end up with an `if` within another `if` (a nested `if` statement). The nests `if` statement code block needs be indented a further 2 spaces. You can do this quickly by highlighting multiple lines of code and then pressing the TAB key to indent or Shift+TAB to outdent.\n",
+   "command": "python .guides/tests/ch-3.py",
+   "points": 1
+  }
+ },
+ {
+  "type": "test",
+  "taskId": "test-491460079",
+  "source": {
+   "showName": false,
+   "answers": [],
+   "tokens": {
+    "blank": [],
+    "text": []
+   },
+   "name": "Using booleans in conditionals",
+   "instructions": "Go ahead and code up the following statement for the `turnTaken()` event handler using `if/ elif /else` statements.\n\n- If energy is less than 10 **AND** steps taken is greater than or equal to 10, show message \"Not going well\".\n- Otherwise, show the message \"Going OK\".\n\n\nTest this out so you get both messages. You will need to bump into energy and monsters. When you're done, press the button below.\n",
+   "command": "python .guides/tests/ch-1.py",
+   "points": 1
+  }
+ }
+]
