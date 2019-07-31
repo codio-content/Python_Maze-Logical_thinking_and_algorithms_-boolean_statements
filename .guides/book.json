@@ -1,0 +1,66 @@
+{
+ "name": "Python_Maze-Logical_thinking_and_algorithms_-boolean_statements",
+ "children": [
+  {
+   "title": "Boolean",
+   "id": "becfb7c2-35da-f23a-ffbc-8d6b4c55316e",
+   "pageId": "becfb7c2-35da-f23a-ffbc-8d6b4c55316e",
+   "type": "chapter",
+   "children": []
+  },
+  {
+   "title": "Or and And",
+   "id": "664496d1-ff0-a29e-1846-bed12a7b1759",
+   "pageId": "664496d1-ff0-a29e-1846-bed12a7b1759",
+   "type": "chapter",
+   "children": [
+    {
+     "title": "More on Logical Operators",
+     "id": "74767c7b-3ee4-8037-32ef-5ff81a93b791",
+     "pageId": "74767c7b-3ee4-8037-32ef-5ff81a93b791",
+     "type": "page"
+    }
+   ]
+  },
+  {
+   "title": "Truth Tables",
+   "id": "a0ad88f7-9056-aea2-7d51-2ed999b869f3",
+   "pageId": "a0ad88f7-9056-aea2-7d51-2ed999b869f3",
+   "type": "chapter",
+   "children": [
+    {
+     "title": "Code Challenge 1",
+     "id": "b52e9707-da-2339-b8ba-459cc3dad6d2",
+     "pageId": "b52e9707-da-2339-b8ba-459cc3dad6d2",
+     "type": "page"
+    },
+    {
+     "title": "Code Challenge 2",
+     "id": "8c47d978-6827-a696-b51b-616e231778b0",
+     "pageId": "8c47d978-6827-a696-b51b-616e231778b0",
+     "type": "page"
+    }
+   ]
+  },
+  {
+   "title": "Boolean variables",
+   "id": "394f7cab-633e-baf0-e6d-344411309101",
+   "pageId": "394f7cab-633e-baf0-e6d-344411309101",
+   "type": "chapter",
+   "children": [
+    {
+     "title": "Challenge Keyboard",
+     "id": "87ed4915-4a6b-5015-3b7f-609aae8ad5df",
+     "pageId": "87ed4915-4a6b-5015-3b7f-609aae8ad5df",
+     "type": "page"
+    },
+    {
+     "title": "Final challenge",
+     "id": "544fe4a7-f3-1952-4d7f-d895c30c059",
+     "pageId": "544fe4a7-f3-1952-4d7f-d895c30c059",
+     "type": "page"
+    }
+   ]
+  }
+ ]
+}
